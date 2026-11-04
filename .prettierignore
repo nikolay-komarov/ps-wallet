@@ -1,0 +1,8 @@
+# Сгенерированные и служебные каталоги
+dist/
+out-tsc/
+.angular/
+node_modules/
+
+# Lock-файлы
+package-lock.json

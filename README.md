@@ -1,59 +1,69 @@
-# PsWallet
+# Wallet
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
+Wallet — учебное приложение на Angular для учёта личных финансов.
 
-## Development server
+Проект создан с помощью [Angular CLI](https://github.com/angular/angular-cli) версии 19.2.27.
 
-To start a local development server, run:
+## Требования
+
+- Node.js `^22.0.0` (зафиксировано в `.nvmrc` — `22.16.0`)
+- npm `>=10 <11`
+
+При использовании [nvm](https://github.com/nvm-sh/nvm) переключитесь на нужную версию:
 
 ```bash
+nvm use
+```
+
+## Установка
+
+```bash
+npm install
+```
+
+## Разработка
+
+Запуск dev-сервера:
+
+```bash
+npm start
+# или
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Приложение доступно на `http://localhost:4200/` и автоматически перезагружается при изменениях исходников.
 
-## Code scaffolding
+## Сборка
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+```bash
+npm run build
+```
+
+Production-сборка сохраняется в каталог `dist/ps-wallet`.
+
+## Проверка кода
+
+В проекте настроены ESLint и Prettier.
+
+- `npm run lint` — проверка кода ESLint
+- `npm run lint:fix` — проверка с автоматическим исправлением
+- `npm run format` — форматирование кода Prettier
+- `npm run format:check` — проверка форматирования
+
+В VS Code линтер и форматтер запускаются автоматически при сохранении файла (см. `.vscode/settings.json`).
+
+## Генерация кода
+
+Создание компонента:
 
 ```bash
 ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Тестовые файлы (`.spec.ts`) не создаются — это настроено в `angular.json` (`skipTests` для всех генераторов).
+
+Полный список генераторов:
 
 ```bash
 ng generate --help
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
