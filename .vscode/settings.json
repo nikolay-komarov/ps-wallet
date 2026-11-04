@@ -1,0 +1,11 @@
+{
+  // ESLint: использовать flat config (eslint.config.js)
+  "eslint.useFlatConfig": true,
+  // Автоматически исправлять все устранимые проблемы ESLint при сохранении файла
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // Prettier: форматтер по умолчанию и форматирование при сохранении
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
