@@ -2,6 +2,7 @@
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
+const eslintPluginImport = require("eslint-plugin-import");
 const configPrettier = require("eslint-config-prettier/flat");
 
 module.exports = tseslint.config(
@@ -38,6 +39,38 @@ module.exports = tseslint.config(
       ],
       // Смягчаем для учебного проекта: any разрешён, но подсвечивается
       "@typescript-eslint/no-explicit-any": "warn",
+      // Границы слоёв (архитектура проекта, см. README.md в каждой папке слоя)
+      "import/no-restricted-paths": [
+        "error",
+        {
+          zones: [
+            // shared — нижний слой: не знает никого из приложения
+            { target: "./src/app/shared", from: "./src/app/core" },
+            { target: "./src/app/shared", from: "./src/app/features" },
+            { target: "./src/app/shared", from: "./src/app/layouts" },
+            // core — инфраструктура: не знает фичи и каркасы
+            { target: "./src/app/core", from: "./src/app/features" },
+            { target: "./src/app/core", from: "./src/app/layouts" },
+            // layouts — каркасы: shared + core-сервисы (AuthService и т. п.), но не фичи
+            { target: "./src/app/layouts", from: "./src/app/features" },
+            // features — домены: не знают каркасы
+            // TODO: фича не должна импортировать другие фичи — добавить зоны
+            // для каждой фичи по мере их появления (patterns: "./src/app/features/*")
+            { target: "./src/app/features", from: "./src/app/layouts" },
+          ],
+        },
+      ],
+    },
+    plugins: {
+      import: eslintPluginImport,
+    },
+    settings: {
+      // Резолв путей для import/no-restricted-paths: учим node-resolver понимать TS
+      "import/resolver": {
+        node: {
+          extensions: [".js", ".mjs", ".ts", ".tsx", ".d.ts"],
+        },
+      },
     },
   },
   {

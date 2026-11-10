@@ -1,0 +1,20 @@
+<form class="login-form">
+  <h1 class="login-form__title">Вход</h1>
+
+  <div class="login-form__fields">
+    <app-input
+      type="email"
+      placeholder="Email"
+      iconUrl="icons/mail.svg"
+      [(value)]="email"
+    />
+
+    <app-password-input
+      placeholder="Пароль"
+      iconUrl="icons/lock.svg"
+      [(value)]="password"
+    />
+  </div>
+
+  <app-button (clicked)="handleSubmit()">Войти</app-button>
+</form>
