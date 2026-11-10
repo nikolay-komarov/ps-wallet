@@ -1,3 +1,20 @@
 <p>{{ title }}</p>
 
+<app-input
+  type="email"
+  placeholder="e-mail"
+  iconUrl="icons/mail.svg"
+  [(value)]="email"
+  (valueChange)="handleEmailInput($event)"
+/>
+
+<app-input
+  type="text"
+  placeholder="Заблокированное поле"
+  [disabled]="true"
+  [(value)]="blockedText"
+/>
+
+<p>Введённый email: {{ email() }}</p>
+
 <app-button (clicked)="handleButtonClick()">Войти</app-button>

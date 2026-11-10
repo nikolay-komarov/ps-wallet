@@ -1,0 +1,46 @@
+.form__input-wrapper {
+  position: relative;
+  width: 100%;
+
+  &:has(.form__input:disabled) {
+    opacity: 0.55;
+  }
+}
+
+.form__input {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #31353f;
+  color: #ffffff;
+  font-size: 14px;
+
+  &::placeholder {
+    color: #9e9e9e;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #3a6ff8;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--with-icon {
+    padding-left: 59px;
+  }
+}
+
+.form__input-icon {
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

@@ -1,0 +1,14 @@
+<div class="form__input-wrapper">
+  @if (iconUrl()) {
+    <img class="form__input-icon" [src]="iconUrl()" alt="" aria-hidden="true" />
+  }
+  <input
+    class="form__input"
+    [class.form__input--with-icon]="iconUrl()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [value]="value()"
+    (input)="handleInput($event)"
+  />
+</div>
