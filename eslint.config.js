@@ -51,8 +51,7 @@ module.exports = tseslint.config(
             // core — инфраструктура: не знает фичи и каркасы
             { target: "./src/app/core", from: "./src/app/features" },
             { target: "./src/app/core", from: "./src/app/layouts" },
-            // layouts — каркасы: только shared
-            { target: "./src/app/layouts", from: "./src/app/core" },
+            // layouts — каркасы: shared + core-сервисы (AuthService и т. п.), но не фичи
             { target: "./src/app/layouts", from: "./src/app/features" },
             // features — домены: не знают каркасы
             // TODO: фича не должна импортировать другие фичи — добавить зоны
